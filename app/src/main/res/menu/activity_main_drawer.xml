@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Perfil" />
+
+        <item
+            android:id="@+id/nav_buscarCarona"
+            android:icon="@drawable/ic_menu_search"
+            android:title="Buscar carona" />
+
+        <item
+            android:id="@+id/nav_oferecerCarona"
+            android:icon="@drawable/ic_menu_offer"
+            android:title="Oferecer carona" />
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_mytravels"
+            android:title="Minhas viagens" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_myride"
+            android:title="Minhas caronas" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_car"
+            android:title="Cadastrar carro" />
+
+        <item
+            android:id="@+id/nav_credits"
+            android:icon="@drawable/ic_menu_moneycar"
+            android:title="Comprar creditos" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_myaccount"
+            android:title="Minha conta" />
+
+        <item
+            android:id="@+id/nav_pagar"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Pagar Claboração" />
+
+        <item
+            android:id="@+id/nav_receber"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Receber Colaboração" />
+
+    </group>
+
+
+</menu>
