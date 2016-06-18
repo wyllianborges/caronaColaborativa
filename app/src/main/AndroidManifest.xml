@@ -52,10 +52,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Cadastro1Activity" />
-        <activity
-            android:name=".TesteActivity"
-            android:label="@string/title_activity_teste"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

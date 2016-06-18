@@ -20,14 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.Profile;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
-//        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener {
+    //        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
     //
 //    private GoogleMap mMap;
 //    private SupportMapFragment sMapFragment;

@@ -1,7 +1,7 @@
 package br.com.up.caronaup;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class Cadastro1Activity extends AppCompatActivity {
 
