@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -171,6 +172,14 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragm);
             fragmentTransaction.commit();
+        } else if (id == R.id.nav_sair){
+            FacebookSdk.sdkInitialize(getApplicationContext());
+
+
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+
+            finish();
 
         }
 

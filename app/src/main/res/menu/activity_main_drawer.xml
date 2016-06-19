@@ -50,6 +50,10 @@
             android:icon="@drawable/ic_menu_send"
             android:title="Receber Colaboração" />
 
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Sair "/>
     </group>
 
 

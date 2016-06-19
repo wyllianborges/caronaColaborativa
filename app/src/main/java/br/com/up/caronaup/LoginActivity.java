@@ -41,12 +41,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
 //       Se já possuir sessão ativa, pula o login e vai direto para a tela inicial
-        Profile profile = Profile.getCurrentProfile();
-        if (profile != null) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        Profile profile = Profile.getCurrentProfile();
+//        if (profile != null) {
+//            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
         loginButtonFacebook = (LoginButton) findViewById(R.id.login_button_facebook);
 //        loginButtonFacebook.setPublishPermissions(Arrays.asList("e-mail", "public_profile", "user_friends"));
@@ -78,7 +78,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, Cadastro1Activity.class);
                 startActivity(intent);
             }
         });
