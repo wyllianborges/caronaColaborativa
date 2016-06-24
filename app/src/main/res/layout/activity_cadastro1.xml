@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.up.caronaup.Cadastro1Activity"
-    style="@android:style/ThemeOverlay.Material.Dark">
+    android:background="@android:color/background_dark">
 
     <EditText
         android:layout_width="wrap_content"
@@ -16,10 +16,10 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/matriculaText"
-        android:text="Matrícula"
         android:layout_above="@+id/senhaUPText"
         android:layout_alignLeft="@+id/senhaUPText"
-        android:layout_alignStart="@+id/senhaUPText" />
+        android:layout_alignStart="@+id/senhaUPText"
+        android:contentDescription="Matrícula" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmar"
-        android:id="@+id/buttonAvancar"
+        android:id="@+id/buttonConfirmarCadastro1"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/senhaUPText"
         android:layout_alignEnd="@+id/senhaUPText" />
@@ -51,5 +51,14 @@
         android:layout_above="@+id/matriculaText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:id="@+id/buttonCancelarCadastro1"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/buttonConfirmarCadastro1"
+        android:layout_toStartOf="@+id/buttonConfirmarCadastro1" />
 
 </RelativeLayout>

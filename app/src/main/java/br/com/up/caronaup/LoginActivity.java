@@ -35,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
-        printKeyHash();
 
+        printKeyHash();
         setContentView(R.layout.activity_login);
 
 
@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 //                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 Intent intent = new Intent(LoginActivity.this, Cadastro1Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -10,13 +10,66 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="values_money">
-        <item>10</item>
-        <item>15</item>
-        <item>20</item>
-        <item>30</item>
-
+        <item>10,00</item>
+        <item>15,00</item>
+        <item>20,00</item>
+        <item>30,00</item>
     </string-array>
+
+    <string-array name="marcas_veiculo">
+        <item>Audi</item>
+        <item>BMW</item>
+        <item>Chevrolet</item>
+        <item>Fiat</item>
+        <item>Ford</item>
+        <item>Mercedes</item>
+        <item>Voskswagem</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="modelos_veiculo">
+        <item>Gol</item>
+        <item>Onix</item>
+        <item>Prisma</item>
+        <item>Golf</item>
+        <item>Focus</item>
+        <item>Fiesta</item>
+        <item>Montana</item>
+    </string-array>
+
+    <string-array name="cor_veiculo">
+        <item>Branco</item>
+        <item>Preto</item>
+        <item>Vermelho</item>
+        <item>Prata</item>
+        <item>Amarelo</item>
+    </string-array>
+
+    <string-array name="ano_veiculo">
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+    </string-array>
+
+    <string-array name="capacidade_veiculo">
+        <item>1 Passageiro</item>
+        <item>2 Passageiros</item>
+        <item>3 Passageiros</item>
+        <item>4 Passageiros</item>
+        <item>5 Passageiros</item>
+        <item>6 Passageiros</item>
+    </string-array>
+
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_teste">TesteActivity</string>
+    <string name="title_activity_cadastro2">Cadastro2Activity</string>
 
 </resources>
