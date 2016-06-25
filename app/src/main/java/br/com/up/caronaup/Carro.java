@@ -9,13 +9,6 @@ public class Carro {
     private String capacidade;
     private int photo;
 
-//Comentario teste Wyllian
-    
-
-
-
-    //Teste eduardo
-
     public Carro(){}
 
     public Carro(String marca, String modelo, int photo) {
