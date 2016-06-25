@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_perfil) {
 
-        } else if (id == R.id.nav_pagar) {
+        } /*else if (id == R.id.nav_pagar) {
             //Chama a tela de Pagamento
             PagamentoFragment fragment = new PagamentoFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_gallery) {
+        }*/ else if (id == R.id.nav_gallery) {
             MinhasViagensFragment fragm = new MinhasViagensFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragm);
