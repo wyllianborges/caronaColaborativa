@@ -9,16 +9,6 @@
             android:title="Perfil" />
 
         <item
-            android:id="@+id/nav_buscarCarona"
-            android:icon="@drawable/ic_menu_search"
-            android:title="Buscar carona" />
-
-        <item
-            android:id="@+id/nav_oferecerCarona"
-            android:icon="@drawable/ic_menu_offer"
-            android:title="Oferecer carona" />
-
-        <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_mytravels"
             android:title="Minhas viagens" />

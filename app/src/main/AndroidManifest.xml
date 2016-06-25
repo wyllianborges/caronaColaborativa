@@ -36,9 +36,6 @@
          App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
         <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
         <meta-data
@@ -46,14 +43,15 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAf55OHxIClu6PZ46sHqNVXjO9_-pP6E4A" />
+            android:value="AIzaSyDePnBNUX-nDN0bwssnBTLMh0o4f__ESXI" />
 
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Cadastro1Activity" />
         <activity android:name=".CadastroVeiculoActivity" />
-        <activity android:name=".CardVeiculoActivity"></activity>
+        <activity android:name=".CardVeiculoActivity" />
+        <activity android:name=".PagamentoActivity"></activity>
     </application>
 
 </manifest>
