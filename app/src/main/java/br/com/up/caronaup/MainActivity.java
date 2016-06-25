@@ -25,6 +25,9 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     //        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
@@ -158,12 +161,12 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
-//        } else if (id == R.id.nav_buscarCarona) {
-//
-//            if (!sMapFragment.isAdded())
-//                sFm.beginTransaction().add(R.id.map, sMapFragment).commit();
-//            else
-//                sFm.beginTransaction().show(sMapFragment).commit();
+
+        } else if (id == R.id.nav_manage) {
+            ListaVeiculoFragment fragmentVeiculo = new ListaVeiculoFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragmentVeiculo);
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_credits) {
 
@@ -172,7 +175,7 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragm);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_sair){
+        } else if (id == R.id.nav_sair) {
             FacebookSdk.sdkInitialize(getApplicationContext());
 
 
@@ -180,7 +183,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
             finish();
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -235,5 +237,20 @@ public class MainActivity extends AppCompatActivity
 
 
         }
+    }
+
+
+    public List<Carro> getSetCarList(int qtd) {
+        String[] models = new String[]{"Gallardo", "Vyron", "Corvette", "Pagani Zonda", "Porsche 911 Carrera", "BMW 720i", "DB77", "Mustang", "Camaro", "CT6"};
+        String[] brands = new String[]{"Lamborghini", " bugatti", "Chevrolet", "Pagani", "Porsche", "BMW", "Aston Martin", "Ford", "Chevrolet", "Cadillac"};
+        int[] photos = new int[]{R.drawable.gallardo, R.drawable.vyron, R.drawable.corvette, R.drawable.paganni_zonda, R.drawable.porsche_911, R.drawable.bmw_720, R.drawable.db77, R.drawable.mustang, R.drawable.camaro, R.drawable.ct6};
+        List<Carro> listAux = new ArrayList<>();
+
+        for (int i = 0; i < qtd; i++) {
+            Carro c = new Carro(models[i % models.length], brands[i % brands.length], photos[i % models.length]);
+//            Carro c = new Carro( models[i % models.length], brands[ i % brands.length ], 0 );
+            listAux.add(c);
+        }
+        return (listAux);
     }
 }

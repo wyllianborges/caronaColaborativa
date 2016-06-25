@@ -22,8 +22,6 @@ import com.facebook.login.widget.LoginButton;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-;
-
 public class LoginActivity extends AppCompatActivity {
 
     //    private Session
