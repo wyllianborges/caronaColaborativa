@@ -5,9 +5,8 @@
     tools:context=".ListaVeiculoFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_lista_veiculo"
+        android:id="@+id/rv_list_veiulo"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical" />
-
+        android:layout_height="match_parent"/>
 </FrameLayout>
