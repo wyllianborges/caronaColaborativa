@@ -22,16 +22,68 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Procurar no mapa"
+        android:text="Buscar"
         android:id="@+id/buttonBuscarCaronaViajens"
-        android:layout_below="@+id/textLocalViagens"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/txtQtdePassageiros"
+        android:layout_toEndOf="@+id/txtQtdePassageiros" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textLocalViagens" />
+        android:layout_below="@+id/textLocalViagens"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Quantidade de Passageiros"
+        android:id="@+id/txtQtdePassageiros"
+        android:layout_below="@+id/buttonBuscarCaronaViajens"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerQtdePassageiros"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/txtQtdePassageiros"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Escolha o veiculo"
+        android:id="@+id/textVeiculoViagens"
+        android:layout_above="@+id/spinnerEscolhaCarro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerEscolhaCarro"
+        android:spinnerMode="dropdown"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Horario da viagem"
+        android:id="@+id/txtHoraViagens"
+        android:layout_below="@+id/spinnerEscolhaCarro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp" />
 </RelativeLayout>

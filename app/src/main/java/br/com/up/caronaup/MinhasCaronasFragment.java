@@ -27,7 +27,6 @@ public class MinhasCaronasFragment extends Fragment {
         Button btn = (Button) view.findViewById(R.id.buttonCallMap);
         btn.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MapsActivity.class);
