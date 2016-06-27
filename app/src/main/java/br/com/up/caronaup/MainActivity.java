@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity
 
         ItemExtrato item8 = new ItemExtrato("-", "Carona", "Pagamento de carona em 10/06/2016", "2,20");
         list.add(item8);
-        
+
         ItemExtrato item9 = new ItemExtrato("-", "Carona", "Pagamento de carona em 10/06/2016", "2,20");
         list.add(item9);
 
