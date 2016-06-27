@@ -31,8 +31,8 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_veiculo);
 
         spinnerMarcaVeiculo = (Spinner) this.findViewById(R.id.spinnerMarcaVeiculo);
-        adapterMarcaVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.marcas_veiculo, android.R.layout.simple_spinner_item);
-        adapterMarcaVeiculo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterMarcaVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.marcas_veiculo, R.layout.spinner_item);
+        adapterMarcaVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerMarcaVeiculo.setAdapter(adapterMarcaVeiculo);
         spinnerMarcaVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -47,8 +47,8 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         });
 
         spinnerModeloVeiculo = (Spinner) this.findViewById(R.id.spinnerModeloVeiculo);
-        adapterModeloVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.modelos_veiculo, android.R.layout.simple_spinner_item);
-        adapterModeloVeiculo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterModeloVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.modelos_veiculo, R.layout.spinner_item);
+        adapterModeloVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerModeloVeiculo.setAdapter(adapterModeloVeiculo);
         spinnerModeloVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -63,8 +63,8 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         });
 
         spinnerCorVeiculo = (Spinner) this.findViewById(R.id.spinnerCorVeiculo);
-        adapterCorVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.cor_veiculo, android.R.layout.simple_spinner_item);
-        adapterCorVeiculo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterCorVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.cor_veiculo, R.layout.spinner_item);
+        adapterCorVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerCorVeiculo.setAdapter(adapterCorVeiculo);
         spinnerCorVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -79,8 +79,8 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         });
 
         spinnerAnoVeiculo = (Spinner) this.findViewById(R.id.spinnerAnoVeiculo);
-        adapterAnoVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.ano_veiculo, android.R.layout.simple_spinner_item);
-        adapterAnoVeiculo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterAnoVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.ano_veiculo, R.layout.spinner_item);
+        adapterAnoVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerAnoVeiculo.setAdapter(adapterAnoVeiculo);
         spinnerAnoVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -95,8 +95,8 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         });
 
         spinnerCapacidadeVeiculo = (Spinner) this.findViewById(R.id.spinnerCapacidadeVeiculo);
-        adapterCapacidadeVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.capacidade_veiculo, android.R.layout.simple_spinner_item);
-        adapterCapacidadeVeiculo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterCapacidadeVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.capacidade_veiculo, R.layout.spinner_item);
+        adapterCapacidadeVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerCapacidadeVeiculo.setAdapter(adapterCapacidadeVeiculo);
         spinnerCapacidadeVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

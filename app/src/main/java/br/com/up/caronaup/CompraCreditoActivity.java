@@ -21,8 +21,8 @@ public class CompraCreditoActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         spinner = (Spinner) this.findViewById(R.id.spinner);
-        adapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.values_money, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.values_money, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
