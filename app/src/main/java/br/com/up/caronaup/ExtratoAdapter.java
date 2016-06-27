@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.List;
 
 /**
@@ -54,6 +57,14 @@ public class ExtratoAdapter extends RecyclerView.Adapter<ExtratoAdapter.MyViewHo
         } else if (mList.get(position).getTipo().toString().equals("saldo")) {
             myViewHolder.imageCard.setImageResource(R.drawable.ic_credit_card);
         }
+
+        try {
+            YoYo.with(Techniques.Tada)
+                    .duration(700)
+                    .playOn(myViewHolder.itemView);
+        } catch (Exception e) {
+        }
+
     }
 
     @Override

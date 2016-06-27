@@ -19,7 +19,6 @@ public class CompraCreditoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra_credito);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         spinner = (Spinner) this.findViewById(R.id.spinner);
         adapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.values_money, android.R.layout.simple_spinner_item);

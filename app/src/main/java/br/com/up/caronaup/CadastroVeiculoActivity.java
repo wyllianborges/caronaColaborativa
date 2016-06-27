@@ -114,9 +114,6 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         buttonSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadastroVeiculoActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
 
@@ -124,8 +121,6 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         buttonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadastroVeiculoActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });

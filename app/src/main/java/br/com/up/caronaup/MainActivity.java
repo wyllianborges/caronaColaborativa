@@ -28,10 +28,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    //        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
-    //
-//    private GoogleMap mMap;
-//    private SupportMapFragment sMapFragment;
+
     private NavigationView navigationView = null;
     private Toolbar toolbar = null;
 
@@ -72,7 +69,6 @@ public class MainActivity extends AppCompatActivity
             Picasso.with(getApplicationContext()).load(imageProfileProfileUrl).into(imageProfile);
         }
 
-//        sMapFragment.getMapAsync(this);
     }
 
     @Override
@@ -85,7 +81,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -95,54 +90,35 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         FragmentManager sFm = getSupportFragmentManager();
 
         int id = item.getItemId();
 
-//        if (sMapFragment.isAdded())
-//            sFm.beginTransaction().hide(sMapFragment).commit();
-
-
         if (id == R.id.nav_perfil) {
-
-        } /*else if (id == R.id.nav_pagar) {
-            //Chama a tela de Pagamento
-            PagamentoFragment fragment = new PagamentoFragment();
+            //Chama a tela de perfil
+            PerfilFragment fragPerfil = new PerfilFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragPerfil);
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_receber) {
-            //Chama a tela de Recebimento
-            RecebimentoFragment fragment = new RecebimentoFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-
-        }*/ else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_minhas_viagens) {
             MinhasViagensFragment fragm = new MinhasViagensFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragm);
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_minhas_caronas) {
             MinhasCaronasFragment fragment = new MinhasCaronasFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -155,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragmentVeiculo);
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_credits) {
+        } else if (id == R.id.nav_minha_conta) {
             //Chama a tela de demonstrativo da conta
             ExtratoFragment fragm = new ExtratoFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -173,37 +149,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//
-//        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-25.44646649, -49.356637);
-//        LatLng carona = new LatLng(-25.443026, -49.352654);
-//        //mMap.addMarker(new MarkerOptions()
-//        //        .position(sydney).title("Carona")
-//        //        .snippet("This is a line break")
-//        //        .snippet("segunda parte"));
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Carona").snippet("Condutor: Geucimar" + "\n" + "Jovemmm" + "\n" + "2nd Line Text" + "\n" + "3rd Line Text").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-//        mMap.addMarker(new MarkerOptions().position(carona).title("Carona2").snippet("Condutor: Francisco" + "\n" + "Jovemmm" + "\n" + "2nd Line Text" + "\n" + "3rd Line Text").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//
-//
-//        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-//        mMap.setMyLocationEnabled(true);
-//
-//
-//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
