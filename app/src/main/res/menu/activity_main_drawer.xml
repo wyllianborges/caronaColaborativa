@@ -14,37 +14,37 @@
             android:title="Minhas viagens" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_myride"
+            android:icon="@drawable/ic_menu_car"
             android:title="Minhas caronas" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_car"
+            android:icon="@drawable/ic_menu_carro"
             android:title="Cadastrar carro" />
 
         <item
             android:id="@+id/nav_credits"
-            android:icon="@drawable/ic_menu_moneycar"
+            android:icon="@drawable/ic_menu_creditos"
             android:title="Comprar creditos" />
         <item
             android:id="@+id/nav_send"
-            android:icon="@drawable/ic_menu_myaccount"
+            android:icon="@drawable/ic_menu_conta"
             android:title="Minha conta" />
 
-        <item
-            android:id="@+id/nav_pagar"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Pagar Claboração" />
+        <!-- <item
+             android:id="@+id/nav_pagar"
+             android:icon="@drawable/ic_menu_send"
+             android:title="Pagar Claboração" /> -->
 
-        <item
-            android:id="@+id/nav_receber"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Receber Colaboração" />
+         <!-- <item
+              android:id="@+id/nav_receber"
+              android:icon="@drawable/ic_menu_send"
+              android:title="Receber Colaboração" /> -->
 
-        <item
-            android:id="@+id/nav_sair"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Sair "/>
-    </group>
+         <item
+             android:id="@+id/nav_sair"
+             android:icon="@drawable/ic_menu_send"
+             android:title="Sair "/>
+     </group>
 
 
-</menu>
+ </menu>
