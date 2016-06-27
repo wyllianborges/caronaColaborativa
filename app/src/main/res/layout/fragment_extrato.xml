@@ -2,20 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaVeiculoFragment">
+    android:layout_marginTop="60dp"
+    tools:context=".ExtratoFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list_veiulo"
+        android:id="@+id/rv_list_extrato"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionCadastrarVeiculo"
+        android:id="@+id/floatingActionComprarCredito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_action_paypal"
         android:layout_gravity="right|bottom"
         android:layout_marginBottom="15dp"
         android:layout_marginRight="15dp" />
+
 </FrameLayout>

@@ -3,9 +3,7 @@ package br.com.up.caronaup;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +18,7 @@ import java.util.List;
 /**
  * Created by Wyllian on 23/06/2016.
  */
-public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolder> {
+public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolderCarro> {
     private Context mContext;
     private List<Carro> mList;
     private LayoutInflater mLayoutInflater;
@@ -42,34 +40,30 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolder
 
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public MyViewHolderCarro onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = mLayoutInflater.inflate(R.layout.fragment_card_veiculo, viewGroup, false);
-        MyViewHolder mvh = new MyViewHolder(v);
+        MyViewHolderCarro mvh = new MyViewHolderCarro(v);
         return mvh;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder myViewHolder, int position) {
+    public void onBindViewHolder(MyViewHolderCarro myViewHolder, int position) {
 
         myViewHolder.modeloCarro.setText(mList.get(position).getModelo());
         myViewHolder.descricaoCarro.setText(mList.get(position).getMarca());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            myViewHolder.imageCarro.setImageResource(mList.get(position).getPhoto());
-        } else {
-            Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), mList.get(position).getPhoto());
-            bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false);
+        Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), mList.get(position).getPhoto());
+        bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false);
 
-            bitmap = ImageHelper.getRoundedCornerBitmap(mContext, bitmap, 4, width, height, false, false, true, true);
-            myViewHolder.imageCarro.setImageBitmap(bitmap);
-        }
+        bitmap = ImageHelper.getRoundedCornerBitmap(mContext, bitmap, 4, width, height, false, false, true, true);
+        myViewHolder.imageCarro.setImageBitmap(bitmap);
 
-        try{
+        try {
             YoYo.with(Techniques.Tada)
                     .duration(700)
                     .playOn(myViewHolder.itemView);
+        } catch (Exception e) {
         }
-        catch(Exception e){}
     }
 
     @Override
@@ -93,13 +87,12 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolder
         notifyItemRemoved(position);
     }
 
-
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyViewHolderCarro extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView imageCarro;
         public TextView modeloCarro;
         public TextView descricaoCarro;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolderCarro(View itemView) {
             super(itemView);
             imageCarro = (ImageView) itemView.findViewById(R.id.imageViewCarro);
             modeloCarro = (TextView) itemView.findViewById(R.id.textModeloCarro);

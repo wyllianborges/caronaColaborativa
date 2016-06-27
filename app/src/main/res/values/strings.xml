@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Carona UP</string>
+    <string name="app_name">Carpool UP</string>
     <string name="title_activity_main">Inicio</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -24,7 +24,6 @@
         <item>Ford</item>
         <item>Mercedes</item>
         <item>Voskswagem</item>
-        <item></item>
     </string-array>
 
     <string-array name="modelos_veiculo">
@@ -71,5 +70,6 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_teste">TesteActivity</string>
     <string name="title_activity_cadastro2">Cadastro2Activity</string>
+    <string name="title_activity_compra_credito">Compra de Crédito</string>
 
 </resources>

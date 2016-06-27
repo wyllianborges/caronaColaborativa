@@ -2,9 +2,7 @@ package br.com.up.caronaup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -51,15 +49,6 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,13 +63,13 @@ public class MainActivity extends AppCompatActivity
 
             View header = navigationView.getHeaderView(0);
             TextView textNomeUsuario = (TextView) header.findViewById(R.id.textNomeUsuario);
+            TextView textEmail = (TextView) header.findViewById(R.id.textNomeUsuario);
             ImageView imageProfile = (ImageView) header.findViewById(R.id.imageView);
 
             textNomeUsuario.setText(profile.getName());
-
+            textEmail.setText("teste@facebook.com");
             String imageProfileProfileUrl = "https://graph.facebook.com/" + profile.getId() + "/picture?type=large";
             Picasso.with(getApplicationContext()).load(imageProfileProfileUrl).into(imageProfile);
-
         }
 
 //        sMapFragment.getMapAsync(this);
@@ -141,7 +130,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_receber) {
-
             //Chama a tela de Recebimento
             RecebimentoFragment fragment = new RecebimentoFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -156,32 +144,28 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
             MinhasCaronasFragment fragment = new MinhasCaronasFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
-
         } else if (id == R.id.nav_manage) {
+            //Chama a tela de listagem de veiculos
             ListaVeiculoFragment fragmentVeiculo = new ListaVeiculoFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragmentVeiculo);
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_credits) {
-
-            CreditosFragment fragm = new CreditosFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
+            //Chama a tela de demonstrativo da conta
+            ExtratoFragment fragm = new ExtratoFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragm);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_sair) {
+            //Sair
             FacebookSdk.sdkInitialize(getApplicationContext());
-
-
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-
             finish();
         }
 
@@ -241,16 +225,64 @@ public class MainActivity extends AppCompatActivity
 
 
     public List<Carro> getSetCarList(int qtd) {
-        String[] models = new String[]{"Gallardo", "Vyron", "Corvette", "Pagani Zonda", "Porsche 911 Carrera", "BMW 720i", "DB77", "Mustang", "Camaro", "CT6"};
-        String[] brands = new String[]{"Lamborghini", " bugatti", "Chevrolet", "Pagani", "Porsche", "BMW", "Aston Martin", "Ford", "Chevrolet", "Cadillac"};
+        String[] brands = new String[]{"Gallardo", "Vyron", "Corvette", "Pagani Zonda", "Porsche 911 Carrera", "BMW 720i", "DB77", "Mustang", "Camaro", "CT6"};
+        String[] models = new String[]{"2007 | 2 Passageiros", "2012 | 1 Passageiro", "2015 | 2 Passageiros", "2012 | 2 Passageiros", "2013 | 2 Passageiros", "2016 | 2 Passageiros", "2013 | 2 Passageiros", "2011 | 3 Passageiros", "2013 | 2 Passageiros", "2014 | 4 Passageiros"};
         int[] photos = new int[]{R.drawable.gallardo, R.drawable.vyron, R.drawable.corvette, R.drawable.paganni_zonda, R.drawable.porsche_911, R.drawable.bmw_720, R.drawable.db77, R.drawable.mustang, R.drawable.camaro, R.drawable.ct6};
         List<Carro> listAux = new ArrayList<>();
 
         for (int i = 0; i < qtd; i++) {
             Carro c = new Carro(models[i % models.length], brands[i % brands.length], photos[i % models.length]);
-//            Carro c = new Carro( models[i % models.length], brands[ i % brands.length ], 0 );
             listAux.add(c);
         }
         return (listAux);
+    }
+
+    public List<ItemExtrato> getSetListExtrato() {
+
+        List<ItemExtrato> list = new ArrayList<>();
+
+        ItemExtrato saldo = new ItemExtrato("saldo", "Saldo Atual", "Saldo em 27/06/2016", "47,40");
+        list.add(saldo);
+
+        ItemExtrato item1 = new ItemExtrato("-", "Carona", "Pagamento de carona em 20/06/2016", "2,20");
+        list.add(item1);
+
+        ItemExtrato item2 = new ItemExtrato("+", "Carona", "Recebimento de carona em 17/06/2016", "2,00");
+        list.add(item2);
+
+        ItemExtrato item3 = new ItemExtrato("-", "Carona", "Pagamento de carona em 16/06/2016", "2,20");
+        list.add(item3);
+
+        ItemExtrato item4 = new ItemExtrato("-", "Carona", "Pagamento de carona em 15/06/2016", "2,20");
+        list.add(item4);
+
+        ItemExtrato item5 = new ItemExtrato("-", "Carona", "Pagamento de carona em 15/06/2016", "2,20");
+        list.add(item5);
+
+        ItemExtrato item6 = new ItemExtrato("-", "Carona", "Pagamento de carona em 14/06/2016", "2,20");
+        list.add(item6);
+
+        ItemExtrato item7 = new ItemExtrato("-", "Carona", "Pagamento de carona em 13/06/2016", "2,20");
+        list.add(item7);
+
+        ItemExtrato item8 = new ItemExtrato("-", "Carona", "Pagamento de carona em 10/06/2016", "2,20");
+        list.add(item8);
+        
+        ItemExtrato item9 = new ItemExtrato("-", "Carona", "Pagamento de carona em 10/06/2016", "2,20");
+        list.add(item9);
+
+        ItemExtrato item11 = new ItemExtrato("+", "Carona", "Recebimento de carona em 08/06/2016", "2,00");
+        list.add(item11);
+
+        ItemExtrato item12 = new ItemExtrato("+", "Carona", "Recebimento de carona em 08/06/2016", "2,00");
+        list.add(item12);
+
+        ItemExtrato item10 = new ItemExtrato("-", "Carona", "Pagamento de carona em 07/06/2016", "2,20");
+        list.add(item10);
+
+        ItemExtrato compra = new ItemExtrato("+", "Credito Paypal", "Compra de crédito em 14/05/2016", "50,00");
+        list.add(compra);
+
+        return (list);
     }
 }

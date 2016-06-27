@@ -16,29 +16,28 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClickListenerHack {
+public class ExtratoFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
     private RecyclerView mRecyclerView;
-    private List<Carro> mList;
+    private List<ItemExtrato> mList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_lista_veiculo, container, false);
+        View view = inflater.inflate(R.layout.fragment_extrato, container, false);
 
         //Ação do botão flutuante
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.floatingActionCadastrarVeiculo);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.floatingActionComprarCredito);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CadastroVeiculoActivity.class);
+                Intent intent = new Intent(getActivity(), CompraCreditoActivity.class);
                 startActivity(intent);
             }
         });
 
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_veiulo);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_extrato);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
 
@@ -47,22 +46,22 @@ public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClic
                 super.onScrollStateChanged(recyclerView, newState);
             }
 
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                LinearLayoutManager llm = (LinearLayoutManager) mRecyclerView.getLayoutManager();
-
-                CarroAdapter adapter = (CarroAdapter) mRecyclerView.getAdapter();
-
-                if (mList.size() == llm.findLastCompletelyVisibleItemPosition() + 1) {
-                    List<Carro> listAux = ((MainActivity) getActivity()).getSetCarList(10);
-
-                    for (int i = 0; i < listAux.size(); i++) {
-                        adapter.addListItem(listAux.get(i), mList.size());
-                    }
-                }
-            }
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//
+//                LinearLayoutManager llm = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+//
+//                ExtratoAdapter adapter = (ExtratoAdapter) mRecyclerView.getAdapter();
+//
+//                if (mList.size() == llm.findLastCompletelyVisibleItemPosition() + 1) {
+//                    List<ItemExtrato> listAux = ((MainActivity) getActivity()).getSetListExtrato();
+//
+//                    for (int i = 0; i < listAux.size(); i++) {
+//                        adapter.addListItem(listAux.get(i), mList.size());
+//                    }
+//                }
+//            }
         });
 
         mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity(), mRecyclerView, this));
@@ -71,8 +70,8 @@ public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClic
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(llm);
 
-        mList = ((MainActivity) getActivity()).getSetCarList(10);
-        CarroAdapter adapter = new CarroAdapter(getActivity(), mList);
+        mList = ((MainActivity) getActivity()).getSetListExtrato();
+        ExtratoAdapter adapter = new ExtratoAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(adapter);
 
         return view;
@@ -145,6 +144,3 @@ public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClic
     }
 
 }
-
-
-
