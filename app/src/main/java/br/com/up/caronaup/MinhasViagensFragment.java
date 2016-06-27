@@ -38,6 +38,17 @@ public class MinhasViagensFragment extends Fragment {
             }
         });
 
+        Button btnInfo = (Button) view.findViewById(R.id.buttonInfoViagens);
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MinhasViagensResumoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }

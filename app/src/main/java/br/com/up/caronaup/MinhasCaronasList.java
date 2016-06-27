@@ -1,13 +1,12 @@
 package br.com.up.caronaup;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -39,12 +38,12 @@ public class MinhasCaronasList extends AppCompatActivity {
                 // String category = ((TextView)view.findViewById(R.id.category)).getText().toString();
                 String price = ((TextView)view.findViewById(R.id.price)).getText().toString();
 
-                Toast.makeText(getApplicationContext(), "S no : " + sno +"\n"
-                        +"Product : " + product +"\n"
-                        //+"Category : " +category +"\n"
-                        +"Price : " +price, Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(getApplicationContext(), "S no : " + sno +"\n"
+                //         +"Product : " + product +"\n"
+                //         //+"Category : " +category +"\n"
+                //       +"Price : " +price, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(MinhasCaronasList.this, PagamentoActivity.class);
+                Intent intent = new Intent(MinhasCaronasList.this, MinhasCaronasResumoActivity.class);
                 startActivity(intent);
             }
         });

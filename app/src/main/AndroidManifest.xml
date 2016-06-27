@@ -60,7 +60,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".MinhasCaronasList" />
-        <activity android:name=".MinhasViagensCadastro"></activity>
+        <activity android:name=".MinhasViagensCadastro" />
+        <activity android:name=".MinhasCaronasResumoActivity" />
+        <activity android:name=".MinhasViagensResumoActivity"></activity>
     </application>
 
 </manifest>
