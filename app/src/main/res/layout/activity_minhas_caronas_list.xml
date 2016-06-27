@@ -56,6 +56,7 @@
         android:layout_height="wrap_content"
         android:text="Nova Carona"
         android:id="@+id/buttonCaronaList"
+        android:textColor="#7f0404"
         android:layout_gravity="right" />
 
 
