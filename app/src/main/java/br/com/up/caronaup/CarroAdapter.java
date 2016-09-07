@@ -20,20 +20,19 @@ import java.util.List;
  */
 public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolderCarro> {
     private Context mContext;
-    private List<Carro> mList;
+    private List<ItemCarro> mList;
     private LayoutInflater mLayoutInflater;
     private RecyclerViewOnClickListenerHack mRecyclerViewOnClickListenerHack;
-    private float scale;
     private int width;
     private int height;
 
 
-    public CarroAdapter(Context c, List<Carro> l) {
+    public CarroAdapter(Context c, List<ItemCarro> l) {
         mContext = c;
         mList = l;
         mLayoutInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        scale = mContext.getResources().getDisplayMetrics().density;
+        float scale = mContext.getResources().getDisplayMetrics().density;
         width = mContext.getResources().getDisplayMetrics().widthPixels - (int) (14 * scale + 0.5f);
         height = (width / 16) * 9;
     }
@@ -42,8 +41,7 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolder
     @Override
     public MyViewHolderCarro onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = mLayoutInflater.inflate(R.layout.fragment_card_veiculo, viewGroup, false);
-        MyViewHolderCarro mvh = new MyViewHolderCarro(v);
-        return mvh;
+        return new MyViewHolderCarro(v);
     }
 
     @Override
@@ -59,10 +57,10 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolder
         myViewHolder.imageCarro.setImageBitmap(bitmap);
 
         try {
-            YoYo.with(Techniques.Tada)
-                    .duration(700)
+            YoYo.with(Techniques.FadeIn)
+                    .duration(300)
                     .playOn(myViewHolder.itemView);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
@@ -76,7 +74,7 @@ public class CarroAdapter extends RecyclerView.Adapter<CarroAdapter.MyViewHolder
         mRecyclerViewOnClickListenerHack = r;
     }
 
-    public void addListItem(Carro c, int position) {
+    public void addListItem(ItemCarro c, int position) {
         mList.add(c);
         notifyItemInserted(position);
     }

@@ -19,12 +19,13 @@ import java.util.List;
 public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
     private RecyclerView mRecyclerView;
-    private List<Carro> mList;
+    private List<ItemCarro> mList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        getActivity().setTitle("Veículos");
         View view = inflater.inflate(R.layout.fragment_lista_veiculo, container, false);
 
         //Ação do botão flutuante
@@ -43,11 +44,6 @@ public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClic
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
@@ -56,7 +52,7 @@ public class ListaVeiculoFragment extends Fragment implements RecyclerViewOnClic
                 CarroAdapter adapter = (CarroAdapter) mRecyclerView.getAdapter();
 
                 if (mList.size() == llm.findLastCompletelyVisibleItemPosition() + 1) {
-                    List<Carro> listAux = ((MainActivity) getActivity()).getSetCarList(10);
+                    List<ItemCarro> listAux = ((MainActivity) getActivity()).getSetCarList(10);
 
                     for (int i = 0; i < listAux.size(); i++) {
                         adapter.addListItem(listAux.get(i), mList.size());

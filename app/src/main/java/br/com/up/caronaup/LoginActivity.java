@@ -28,17 +28,14 @@ public class LoginActivity extends AppCompatActivity {
 
     //    private Session
     private CallbackManager callbackManager;
-    private LoginButton loginButtonFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
-
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
@@ -55,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 //            finish();
 //        }
 
-        loginButtonFacebook = (LoginButton) findViewById(R.id.login_button_facebook);
+        LoginButton loginButtonFacebook = (LoginButton) findViewById(R.id.login_button_facebook);
 //        loginButtonFacebook.setPublishPermissions(Arrays.asList("e-mail", "public_profile", "user_friends"));
 
         loginButtonFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -85,7 +82,9 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+//                Profile profile = Profile.getCurrentProfile();
+
                 Intent intent = new Intent(LoginActivity.this, Cadastro1Activity.class);
                 startActivity(intent);
                 finish();
@@ -102,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Call this method inside onCreate once to get your hash key
      */
-    public void printKeyHash() {
+    private void printKeyHash() {
         try {
             PackageInfo info = getPackageManager().getPackageInfo("br.com.up.caronaup", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
@@ -110,9 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 md.update(signature.toByteArray());
                 Log.e("SHA: ", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }

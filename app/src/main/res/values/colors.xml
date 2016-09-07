@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#5e5d69</color>
     <color name="colorPrimaryText">#3F51B5</color>
     <color name="colorSecondText">#878FAF</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#379aca</color>
     <color name="colorCell">#015093</color>
-    <color name="colorItensPerfil">#015093</color>
+    <color name="colorItensPerfil">#5b5b5b</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

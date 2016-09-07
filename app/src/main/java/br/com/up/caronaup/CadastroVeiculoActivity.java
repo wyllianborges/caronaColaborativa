@@ -1,6 +1,5 @@
 package br.com.up.caronaup;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,23 +11,26 @@ import android.widget.Spinner;
 
 public class CadastroVeiculoActivity extends AppCompatActivity {
 
-    Button buttonSalvar;
-    Button buttonCancelar;
-    Spinner spinnerMarcaVeiculo;
-    Spinner spinnerModeloVeiculo;
-    Spinner spinnerCorVeiculo;
-    Spinner spinnerAnoVeiculo;
-    Spinner spinnerCapacidadeVeiculo;
-    ArrayAdapter<CharSequence> adapterMarcaVeiculo;
-    ArrayAdapter<CharSequence> adapterModeloVeiculo;
-    ArrayAdapter<CharSequence> adapterCorVeiculo;
-    ArrayAdapter<CharSequence> adapterAnoVeiculo;
-    ArrayAdapter<CharSequence> adapterCapacidadeVeiculo;
+    private Button buttonSalvar;
+    private Spinner spinnerMarcaVeiculo;
+    private Spinner spinnerModeloVeiculo;
+    private Spinner spinnerCorVeiculo;
+    private Spinner spinnerAnoVeiculo;
+    private Spinner spinnerCapacidadeVeiculo;
+    private ArrayAdapter<CharSequence> adapterMarcaVeiculo;
+    private ArrayAdapter<CharSequence> adapterModeloVeiculo;
+    private ArrayAdapter<CharSequence> adapterCorVeiculo;
+    private ArrayAdapter<CharSequence> adapterAnoVeiculo;
+    private ArrayAdapter<CharSequence> adapterCapacidadeVeiculo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_cadastro_veiculo);
+
+        spinnerModeloVeiculo = (Spinner) this.findViewById(R.id.spinnerModeloVeiculo);
 
         spinnerMarcaVeiculo = (Spinner) this.findViewById(R.id.spinnerMarcaVeiculo);
         adapterMarcaVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.marcas_veiculo, R.layout.spinner_item);
@@ -37,7 +39,21 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
         spinnerMarcaVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+                adapterModeloVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.modelos_veiculo, R.layout.spinner_item);
+                adapterModeloVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                spinnerModeloVeiculo.setAdapter(adapterModeloVeiculo);
+                spinnerModeloVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -46,21 +62,6 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
             }
         });
 
-        spinnerModeloVeiculo = (Spinner) this.findViewById(R.id.spinnerModeloVeiculo);
-        adapterModeloVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.modelos_veiculo, R.layout.spinner_item);
-        adapterModeloVeiculo.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spinnerModeloVeiculo.setAdapter(adapterModeloVeiculo);
-        spinnerModeloVeiculo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         spinnerCorVeiculo = (Spinner) this.findViewById(R.id.spinnerCorVeiculo);
         adapterCorVeiculo = ArrayAdapter.createFromResource(getApplicationContext(), R.array.cor_veiculo, R.layout.spinner_item);
@@ -117,13 +118,6 @@ public class CadastroVeiculoActivity extends AppCompatActivity {
             }
         });
 
-        buttonCancelar = (Button) this.findViewById(R.id.buttonCancelarCadastroVeiculo);
-        buttonCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
     }
 }

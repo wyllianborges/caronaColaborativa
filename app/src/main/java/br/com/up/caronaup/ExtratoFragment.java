@@ -18,12 +18,10 @@ import java.util.List;
 
 public class ExtratoFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
-    private RecyclerView mRecyclerView;
-    private List<ItemExtrato> mList;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().setTitle("Minha Conta");
 
         View view = inflater.inflate(R.layout.fragment_extrato, container, false);
 
@@ -37,16 +35,11 @@ public class ExtratoFragment extends Fragment implements RecyclerViewOnClickList
             }
         });
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_extrato);
+        RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_extrato);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
 
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-//            @Override
+            //            @Override
 //            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 //                super.onScrolled(recyclerView, dx, dy);
 //
@@ -70,7 +63,7 @@ public class ExtratoFragment extends Fragment implements RecyclerViewOnClickList
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(llm);
 
-        mList = ((MainActivity) getActivity()).getSetListExtrato();
+        List<ItemExtrato> mList = ((MainActivity) getActivity()).getSetListExtrato();
         ExtratoAdapter adapter = new ExtratoAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(adapter);
 

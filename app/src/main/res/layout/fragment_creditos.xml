@@ -6,7 +6,6 @@
 
 
     <TextView
-        android:id="@+id/textView6"
         android:layout_width="270dp"
         android:layout_height="151dp"
         android:layout_gravity="right|center_vertical"

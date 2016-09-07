@@ -1,16 +1,16 @@
 package br.com.up.caronaup;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,9 +29,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private NavigationView navigationView = null;
-    private Toolbar toolbar = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +39,7 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -52,19 +48,16 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         Profile profile = Profile.getCurrentProfile();
         if (profile != null) {
 
             View header = navigationView.getHeaderView(0);
-            TextView textNomeUsuario = (TextView) header.findViewById(R.id.textNomeUsuario);
-            TextView textEmail = (TextView) header.findViewById(R.id.textNomeUsuario);
+            TextView textNomeUsuarioMenu = (TextView) header.findViewById(R.id.textNomeUsuario);
             ImageView imageProfile = (ImageView) header.findViewById(R.id.imageView);
-
-            textNomeUsuario.setText(profile.getName());
-            textEmail.setText("teste@facebook.com");
+            textNomeUsuarioMenu.setText(profile.getName());
             String imageProfileProfileUrl = "https://graph.facebook.com/" + profile.getId() + "/picture?type=large";
             Picasso.with(getApplicationContext()).load(imageProfileProfileUrl).into(imageProfile);
         }
@@ -77,60 +70,55 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Carpool");
+            builder.setMessage("Deseja fechar o aplicativo?");
+            builder.setPositiveButton("Não", null);
+            builder.setNegativeButton("Sim", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+
+            builder.show();
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        FragmentManager sFm = getSupportFragmentManager();
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_perfil) {
+        if (id == R.id.nav_home) {
+            HomeFragment fragHome = new HomeFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragHome);
+            fragmentTransaction.commit();
+        } else if (id == R.id.nav_perfil) {
             //Chama a tela de perfil
             PerfilFragment fragPerfil = new PerfilFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragPerfil);
             fragmentTransaction.commit();
-
-        } else if (id == R.id.nav_minhas_viagens) {
-            MinhasViagensFragment fragm = new MinhasViagensFragment();
+        } else if (id == R.id.nav_viagens) {
+            ListaViagemFragment fragm = new ListaViagemFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragm);
             fragmentTransaction.commit();
-
-        } else if (id == R.id.nav_minhas_caronas) {
-            MinhasCaronasFragment fragment = new MinhasCaronasFragment();
+        } else if (id == R.id.nav_caronas) {
+            //Chama a tela de listagem de Caronas
+            ListaCaronaFragment fragmentCarona = new ListaCaronaFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragmentCarona);
             fragmentTransaction.commit();
-
         } else if (id == R.id.nav_manage) {
-            //Chama a tela de listagem de veiculos
+            //Chama a tela de listagem de Veiculos
             ListaVeiculoFragment fragmentVeiculo = new ListaVeiculoFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragmentVeiculo);
             fragmentTransaction.commit();
-
         } else if (id == R.id.nav_minha_conta) {
             //Chama a tela de demonstrativo da conta
             ExtratoFragment fragm = new ExtratoFragment();
@@ -144,7 +132,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             finish();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -163,22 +150,50 @@ public class MainActivity extends AppCompatActivity
 
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
             }
-
-
         }
     }
 
 
-    public List<Carro> getSetCarList(int qtd) {
+    public List<ItemCarro> getSetCarList(int qtd) {
         String[] brands = new String[]{"Gallardo", "Vyron", "Corvette", "Pagani Zonda", "Porsche 911 Carrera", "BMW 720i", "DB77", "Mustang", "Camaro", "CT6"};
         String[] models = new String[]{"2007 | 2 Passageiros", "2012 | 1 Passageiro", "2015 | 2 Passageiros", "2012 | 2 Passageiros", "2013 | 2 Passageiros", "2016 | 2 Passageiros", "2013 | 2 Passageiros", "2011 | 3 Passageiros", "2013 | 2 Passageiros", "2014 | 4 Passageiros"};
         int[] photos = new int[]{R.drawable.gallardo, R.drawable.vyron, R.drawable.corvette, R.drawable.paganni_zonda, R.drawable.porsche_911, R.drawable.bmw_720, R.drawable.db77, R.drawable.mustang, R.drawable.camaro, R.drawable.ct6};
-        List<Carro> listAux = new ArrayList<>();
+        List<ItemCarro> listAux = new ArrayList<>();
 
         for (int i = 0; i < qtd; i++) {
-            Carro c = new Carro(models[i % models.length], brands[i % brands.length], photos[i % models.length]);
+            ItemCarro c = new ItemCarro(models[i % models.length], brands[i % brands.length], photos[i % models.length]);
             listAux.add(c);
         }
+        return (listAux);
+    }
+
+    public List<ItemCarona> getSetCaronaList() {
+
+        List<ItemCarona> listAux = new ArrayList<>();
+        ItemCarona item1 = new ItemCarona("001", "22/08/2016", "14:00", "Rua Martin Afonso, 1310, Bigorrilho. Curitiba - PR", "Universidade Positivo - Campus Ecoville");
+        listAux.add(item1);
+
+        ItemCarona item2 = new ItemCarona("002", "24/08/2016", "17:00", "Rua Pe Anchieta, 1892, Bigorrilho. Curitiba - PR", "Universidade Positivo - Campus Batel");
+        listAux.add(item2);
+
+        ItemCarona item3 = new ItemCarona("003", "25/08/2016", "17:00", "Rua Marechal Deodoro, 558, Centro. Curitiba - PR", "Universidade Positivo - Campus Ecoville");
+        listAux.add(item3);
+
+        return (listAux);
+    }
+
+    public List<ItemViagem> getSetViagemList() {
+
+        List<ItemViagem> listAux = new ArrayList<>();
+        ItemViagem item1 = new ItemViagem("001", "22/08/2016", "14:00", "Rua Martin Afonso, 1310, Bigorrilho. Curitiba - PR", "Universidade Positivo - Campus Ecoville", "2/4");
+        listAux.add(item1);
+
+        ItemViagem item2 = new ItemViagem("002", "24/08/2016", "17:00", "Rua Pe Anchieta, 1892, Bigorrilho. Curitiba - PR", "Universidade Positivo - Campus Batel", "1/3");
+        listAux.add(item2);
+
+        ItemViagem item3 = new ItemViagem("003", "25/08/2016", "17:00", "Rua Marechal Deodoro, 558, Centro. Curitiba - PR", "Universidade Positivo - Campus Ecoville", "2/3");
+        listAux.add(item3);
+
         return (listAux);
     }
 

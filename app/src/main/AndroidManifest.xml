@@ -8,6 +8,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +27,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:icon="@drawable/logo_app_branco"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -31,10 +35,7 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--
-     ATTENTION: This was auto-generated to add Google Play services to your project for
-         App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -48,23 +49,61 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Cadastro1Activity" />
-        <activity android:name=".CadastroVeiculoActivity" />
-        <activity android:name=".PagamentoActivity"></activity>
-
-        <!--
-ATTENTION: This was auto-generated to add Google Play services to your project for
-App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
- -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <activity android:name=".MinhasCaronasList" />
-        <activity android:name=".MinhasViagensCadastro" />
-        <activity android:name=".MinhasCaronasResumoActivity" />
-        <activity android:name=".MinhasViagensResumoActivity"></activity>
-        <activity android:name=".CompraCreditoActivity"></activity>
+        <activity
+            android:name=".Cadastro1Activity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CadastroVeiculoActivity"
+            android:icon="@drawable/logo_app_branco"
+            android:label="Cadastro de Veiculos"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PagamentoActivity"
+            android:icon="@drawable/logo_app_branco"
+            android:label="Pagamento / Check-in" />
+        <activity
+            android:name=".DetalhesCaronaActivity"
+            android:icon="@drawable/logo_app_branco"
+            android:label="Detalhes da carona" />
+        <activity
+            android:name=".CompraCreditoActivity"
+            android:icon="@drawable/logo_app_branco"
+            android:label="Compra de Créditos" />
+        <activity android:name=".DetalhesViagemActivity" />
+        <activity android:name=".NovaViagemActivity" />
+        <activity
+            android:name=".PerfilCondutorActivity"
+            android:label="@string/title_activity_perfil_condutor"
+            android:parentActivityName=".DetalhesCaronaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.up.caronaup.DetalhesCaronaActivity" />
+        </activity>
+        <activity
+            android:name=".PerfilPassageiroActivity"
+            android:label="@string/title_activity_perfil_passageiro"
+            android:parentActivityName=".DetalhesViagemActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.up.caronaup.DetalhesViagemActivity" />
+        </activity>
+        <activity
+            android:name=".DetalhesVeiculoActivity"
+            android:label="@string/title_activity_detalhes_veiculo"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.up.caronaup.MainActivity" />
+        </activity>
+        <activity android:name=".DetalhesCaronaViewActivity"></activity>
     </application>
 
 </manifest>

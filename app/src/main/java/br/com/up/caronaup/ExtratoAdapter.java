@@ -17,16 +17,11 @@ import java.util.List;
  * Created by Wyllian on 26/06/2016.
  */
 public class ExtratoAdapter extends RecyclerView.Adapter<ExtratoAdapter.MyViewHolderExtrato> {
-    private Context mContext;
     private List<ItemExtrato> mList;
     private LayoutInflater mLayoutInflater;
     private RecyclerViewOnClickListenerHack mRecyclerViewOnClickListenerHack;
-//    private float scale;
-//    private int width;
-//    private int height;
 
     public ExtratoAdapter(Context c, List<ItemExtrato> l) {
-        mContext = c;
         mList = l;
         mLayoutInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -39,8 +34,7 @@ public class ExtratoAdapter extends RecyclerView.Adapter<ExtratoAdapter.MyViewHo
     @Override
     public MyViewHolderExtrato onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v = mLayoutInflater.inflate(R.layout.fragment_card_item_extrato, viewGroup, false);
-        MyViewHolderExtrato mvh = new MyViewHolderExtrato(v);
-        return mvh;
+        return new MyViewHolderExtrato(v);
     }
 
     @Override
@@ -50,21 +44,20 @@ public class ExtratoAdapter extends RecyclerView.Adapter<ExtratoAdapter.MyViewHo
         myViewHolder.descricaoCard.setText(mList.get(position).getDescricao());
         myViewHolder.valorCard.setText(mList.get(position).getValor());
 
-        if (mList.get(position).getTipo().toString().equals("+")) {
+        if (mList.get(position).getTipo().equals("+")) {
             myViewHolder.imageCard.setImageResource(R.drawable.ic_add_circle_outline);
-        } else if (mList.get(position).getTipo().toString().equals("-")) {
+        } else if (mList.get(position).getTipo().equals("-")) {
             myViewHolder.imageCard.setImageResource(R.drawable.ic_remove_circle_outline);
-        } else if (mList.get(position).getTipo().toString().equals("saldo")) {
+        } else if (mList.get(position).getTipo().equals("saldo")) {
             myViewHolder.imageCard.setImageResource(R.drawable.ic_credit_card);
         }
 
         try {
-            YoYo.with(Techniques.Tada)
-                    .duration(700)
+            YoYo.with(Techniques.FadeIn)
+                    .duration(300)
                     .playOn(myViewHolder.itemView);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
-
     }
 
     @Override

@@ -17,9 +17,8 @@ import android.widget.Toast;
  */
 public class CreditosFragment extends Fragment {
 
-    Spinner spinner;
-    ArrayAdapter<CharSequence> adapter;
-
+    private Spinner spinner;
+    private ArrayAdapter<CharSequence> adapter;
 
     public CreditosFragment() {
         // Required empty public constructor

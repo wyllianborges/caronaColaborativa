@@ -1,8 +1,8 @@
 package br.com.up.caronaup;
 
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
@@ -15,7 +15,7 @@ public class PagamentoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String codigo = "teste de codigo";
+        String codigo = "teste de codigo llfjdflkdjfljsfkldjfçkfslkfjlfkjsfjskfdlkjlk ";
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
@@ -25,11 +25,9 @@ public class PagamentoActivity extends AppCompatActivity {
         try {
 
             MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-            BitMatrix bitMatrix = multiFormatWriter.encode(codigo, BarcodeFormat.QR_CODE, 300, 300);
-
+            BitMatrix bitMatrix = multiFormatWriter.encode(codigo, BarcodeFormat.QR_CODE, 400, 400);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-
             imageQRCode.setImageBitmap(bitmap);
 
         } catch (WriterException e) {

@@ -1,117 +1,301 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="60dp"
-    tools:context=".PerfilFragment">
+    android:layout_marginTop="50dp">
 
-
-    <ImageView
-        android:id="@+id/imageFotoPerfil"
-        android:layout_width="183dp"
-        android:layout_height="183dp"
-        android:layout_alignLeft="@+id/textViewCursoPerfil"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textViewCursoPerfil"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
-
-    <TextView
-        android:id="@+id/textViewNomePerfil"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageFotoPerfil"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Wyllian Borges"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        tools:context=".PerfilFragment">
 
-    <TextView
-        android:id="@+id/textViewCursoPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewNomePerfil"
-        android:layout_centerHorizontal="true"
-        android:text="Sistemas de Informação"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:cardBackgroundColor="@color/com_facebook_button_login_silver_background_color_pressed">
 
-    <RatingBar
-        android:id="@+id/ratingMotorista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:rating="3.7"
-        android:stepSize="0"
-        android:layout_below="@+id/textView18"
-        android:layout_centerHorizontal="true" />
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardViewPerfil1"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="3dp"
+                app:cardMaxElevation="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false">
 
-    <TextView
-        android:id="@+id/textViewCaronasFornecidasPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewCursoPerfil"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="24 Canonas fornecidas"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/colorItensPerfil"
-        android:textSize="17dp"
-        android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_perfil">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewCaronasFornecidasPerfil"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:text="13 Caronas pegas"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/colorItensPerfil"
-        android:textSize="17dp"
-        android:textStyle="bold" />
+                    <!--<ImageView-->
+                    <!--android:id="@+id/imageFotoPerfil"-->
+                    <!--android:layout_width="183dp"-->
+                    <!--android:layout_height="183dp"-->
+                    <!--android:layout_alignLeft="@+id/textViewCursoPerfil"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:layout_alignStart="@+id/textViewCursoPerfil"-->
+                    <!--android:layout_gravity="center_horizontal|top"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:adjustViewBounds="false"-->
+                    <!--android:src="@drawable/com_facebook_profile_picture_blank_portrait" />-->
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rating motorista"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/colorItensPerfil"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView17"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imageFotoPerfil"
+                        android:layout_width="183dp"
+                        android:layout_height="183dp"
+                        android:layout_alignLeft="@+id/textViewCursoPerfil"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignStart="@+id/textViewCursoPerfil"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="20dp"
+                        android:adjustViewBounds="false"
+                        android:elevation="10dp"
+                        android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="2dp" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rating passageiro"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/colorItensPerfil"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/ratingMotorista"
-        android:layout_alignRight="@+id/textView18"
-        android:layout_alignEnd="@+id/textView18"
-        android:layout_marginTop="10dp" />
+                    <TextView
+                        android:id="@+id/textViewNomePerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageFotoPerfil"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Wyllian Borges"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingPassageiro"
-        android:layout_below="@+id/textView19"
-        android:layout_alignLeft="@+id/ratingMotorista"
-        android:layout_alignStart="@+id/ratingMotorista"
-        android:numStars="5"
-        android:rating="4.3"
-        android:stepSize="0" />
+                    <TextView
+                        android:id="@+id/textViewCursoPerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewNomePerfil"
+                        android:layout_centerHorizontal="true"
+                        android:text="Sistemas de Informação"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@android:color/white" />
 
-</RelativeLayout>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardViewPerfil2"
+                    android:layout_width="165dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/cardViewPerfil3"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="3dp"
+                    app:cardMaxElevation="3dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="29"
+                            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                            android:textColor="@color/colorItensPerfil"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:text="Caronas fornecidas"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/colorItensPerfil"
+                            android:textSize="15dp" />
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardViewPerfil3"
+                    android:layout_width="165dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="295dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="3dp"
+                    app:cardMaxElevation="3dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="15"
+                            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                            android:textColor="@color/colorItensPerfil"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:text="Caronas pegas"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/colorItensPerfil"
+                            android:textSize="15dp" />
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardViewPerfil4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="375dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="3dp"
+                app:cardMaxElevation="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Rating motorista"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorItensPerfil"
+                        android:textSize="12dp" />
+
+                    <RatingBar
+                        android:id="@+id/ratingMotorista"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textView18"
+                        android:layout_centerHorizontal="true"
+                        android:numStars="5"
+                        android:rating="3.7"
+                        android:stepSize="0" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ratingMotorista"
+                        android:layout_centerHorizontal="true"
+                        android:text="Rating passageiro"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorItensPerfil"
+                        android:textSize="12dp" />
+
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/ratingMotorista"
+                        android:layout_alignStart="@+id/ratingMotorista"
+                        android:layout_below="@+id/textView19"
+                        android:numStars="5"
+                        android:rating="4.3"
+                        android:stepSize="0" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="535dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="3dp"
+                app:cardMaxElevation="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Contato"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorItensPerfil"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="25dp"
+                        android:text="Celular: (41) 9690-7806"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorItensPerfil"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="50dp"
+                        android:text="E-mail: wyllianborges@outlook.com"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorItensPerfil"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

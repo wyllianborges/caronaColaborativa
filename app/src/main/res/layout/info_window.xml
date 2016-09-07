@@ -1,28 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titulo"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_local"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_capacidade"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_horario"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imagem_wyll"
-        android:src="@drawable/wyll_perf"/>
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardViewCaronaInfoWindow"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+        <TextView
+            android:id="@+id/label_horario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="5dp"
+            android:text="Horario de saída:"
+            android:textAlignment="textStart"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_horario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
+            android:text="18:30"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/txt_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="180dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="20dp"
+            android:text="25/08/2016"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/label_local_saida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="40dp"
+            android:text="Local de saída:"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="55dp"
+            android:text="Rua Martin Afonso, 1310, Bigorrilho." />
+
+
+        <TextView
+            android:id="@+id/label_destino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="75dp"
+            android:text="Destino:"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_destino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="90dp"
+            android:text="Universidade Positivo - Campus Ecovile" />
+
+        <TextView
+            android:id="@+id/label_capacidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="110dp"
+            android:text="Capacidade:" />
+
+        <TextView
+            android:id="@+id/txt_capacidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="110dp"
+            android:text="1/3" />
+
+        <TextView
+            android:id="@+id/txt_nomeCondutorInfoWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="140dp"
+            android:text="Wyllian Borges"
+            android:textSize="16dp" />
+
+        <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:src="@drawable/wyll_perf" />-->
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageFotoPerfilInfoWindow"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/textViewCursoPerfil"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:adjustViewBounds="false"
+            android:src="@drawable/wyll_perf"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0dp" />
+
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

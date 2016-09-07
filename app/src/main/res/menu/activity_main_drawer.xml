@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:checkableBehavior="single"
+        android:enabled="true"
+        android:menuCategory="alternative"
+        android:visible="true">
 
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_action_home"
+            android:title="Inicio" />
         <item
             android:id="@+id/nav_perfil"
             android:icon="@drawable/ic_menu_camera"
             android:title="Perfil" />
-
         <item
-            android:id="@+id/nav_minhas_viagens"
+            android:id="@+id/nav_viagens"
             android:icon="@drawable/ic_menu_minhasviagens"
-            android:title="Minhas viagens" />
+            android:title="Viagens" />
         <item
-            android:id="@+id/nav_minhas_caronas"
+            android:id="@+id/nav_caronas"
             android:icon="@drawable/ic_menu_minhascaronas"
-            android:title="Minhas caronas" />
+            android:title="Caronas" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_carro"
-            android:title="Cadastrar carro" />
-        <!--<item-->
-            <!--android:id="@+id/nav_credits"-->
-            <!--android:icon="@drawable/ic_menu_creditos"-->
-            <!--android:title="Comprar creditos" />-->
+            android:title="Veiculos" />
         <item
             android:id="@+id/nav_minha_conta"
             android:icon="@drawable/ic_menu_conta"
             android:title="Minha conta" />
+        <item
+            android:icon="@android:drawable/star_big_off"
+            android:title="Avaliações" />
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_action_exit"
+            android:title="Sair " />
+    </group>
 
-         <item
-             android:id="@+id/nav_sair"
-             android:icon="@drawable/ic_menu_send"
-             android:title="Sair "/>
-     </group>
-
-
- </menu>
+</menu>

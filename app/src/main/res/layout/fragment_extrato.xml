@@ -7,17 +7,18 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list_extrato"
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/com_facebook_button_login_silver_background_color_pressed"
+        android:scrollbars="vertical" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionComprarCredito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_paypal"
         android:layout_gravity="right|bottom"
         android:layout_marginBottom="15dp"
-        android:layout_marginRight="15dp" />
+        android:layout_marginRight="15dp"
+        android:src="@drawable/ic_action_paypal" />
 
 </FrameLayout>

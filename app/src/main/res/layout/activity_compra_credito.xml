@@ -1,30 +1,42 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CompraCreditoActivity">
+    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="270dp"
-        android:layout_height="151dp"
-        android:layout_gravity="right|center_vertical"
-        android:text="Qual a quantidade?"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25dp" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:spinnerMode="dialog" />
+        android:layout_marginTop="50dp"
+        tools:context=".CompraCreditoActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirmar"
-        android:id="@+id/button"
-        android:layout_gravity="right|bottom" />
-</FrameLayout>
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="151dp"
+            android:layout_gravity="right|center_vertical"
+            android:text="Qual a quantidade?"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="270dp"
+            android:id="@+id/txt_teste"
+            android:layout_height="151dp"
+            android:layout_marginTop="150dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="25dp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:spinnerMode="dialog" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:text="Confirmar" />
+    </LinearLayout>
+</ScrollView>

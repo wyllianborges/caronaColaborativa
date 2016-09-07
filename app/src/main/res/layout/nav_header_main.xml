@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayoutMenu"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@color/colorSecondText"
-    android:gravity="bottom"
+    android:background="@drawable/background_perfil"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:weightSum="1">
 
-    <ImageView
+    <!--<ImageView-->
+    <!--android:id="@+id/imageView"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="77dp"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:paddingTop="@dimen/nav_header_vertical_spacing"-->
+    <!--android:src="@drawable/com_facebook_profile_picture_blank_portrait" />-->
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="77dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:src="@drawable/com_facebook_profile_picture_blank_portrait"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
 
 
     <!--<com.facebook.login.widget.ProfilePictureView-->
@@ -37,18 +41,10 @@
         android:id="@+id/textNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
         android:text="Carona Colaborativa"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="android.studio@android.com"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
